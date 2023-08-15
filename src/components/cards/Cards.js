@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./styles.css";
 const Cards = ({ results }) => {
   console.log(results);
@@ -7,7 +8,7 @@ const Cards = ({ results }) => {
     display = results.map((element) => {
       let { id, name, image, location, status } = element;
       return (
-        <div key={id} className="col-4 position-relative">
+        <Link to={`${id}`} key={id} className="col-4 position-relative">
           <div className="card mb-4">
             <img src={image} alt={name} className="img-fluid img " />
             <div className="contents">
@@ -42,7 +43,7 @@ const Cards = ({ results }) => {
               })()}
             </div>
           </div>
-        </div>
+        </Link>
       );
     });
   } else {
